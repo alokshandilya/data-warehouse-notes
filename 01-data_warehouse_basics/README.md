@@ -101,4 +101,5 @@ Data mainly used in company for 2 purposes:
 - **Warehouse**: Structured data → actionable insights.
 - **Lake**: Raw data → future innovation (but risks becoming a "data swamp" without governance).
 
-> Modern systems often combine both (**data lakehouse**, eg: Databricks).
+> - They are not mutually exclusive, _can be used together_
+> - Modern systems often combine both (**data lakehouse**, eg: Databricks).
