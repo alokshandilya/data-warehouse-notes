@@ -14,7 +14,7 @@ Data mainly used in company for 2 purposes:
    - answer questions like _"What's the best category?"_, _"How many sales compared to last year?"_, _"What can be improved?"_, etc.
    - in short, _evaluate performance and make decisions, how to turn the wheel better_
 
-> :ghost: Lack of Data Warehouse in a company can create questions like:
+> _Lack of Data Warehouse_ :ghost: in a company can lead to statements like:
 >
 > - _Yes, we have a lot of data, but we don't use it._
 > - _Our data is very complicated and difficult to analyze._
@@ -36,14 +36,69 @@ Data mainly used in company for 2 purposes:
 
 ## What is Data Warehouse?
 
-> A database used and optimized for analytical purposes.
+> **A database used and optimized for analytical purposes.**
 >
 > Also, should be:
 >
-> - user friendly
-> - fast query performance
-> - enabling data analysis
+> - _user friendly_
+> - _fast query performance_
+> - _enabling data analysis_
 
 <p>
-   <img src="https://github.com/user-attachments/assets/c1102aca-4e3c-4ce7-892d-3e265b41c219" height=275>
+   <img src="https://github.com/user-attachments/assets/97262f7e-4e71-4f49-bdc5-80a06a7f925d" height=275>
 </p>
+
+#### Goal of Data Warehouse:
+
+- _centralized and consistent location for data_
+- _data must be accessible fast (query performance)_
+- _data must be usable (user friendly)_
+- _must load data consistently and repeatedly **(ETL)**_
+- _reporting and data visualization on top_
+
+## What is Business Intelligence?
+
+> **we create data warehouse for Business Intelligence (BI)**
+
+<p>
+    <img src="https://github.com/user-attachments/assets/0bb217a6-4e95-467b-828b-ab1121f71187" height=275>
+</p>
+
+**Business Intelligence (BI)** refers to the process of collecting, analyzing, and transforming raw data into actionable insights to support business decisions. It involves tools (e.g., dashboards, reports) and practices (e.g., data mining, visualization) to identify trends, optimize operations, and improve strategic outcomes.
+
+**Key elements**:
+
+- **Data collection** (sales, customer behavior, etc.).
+- **Analysis** (spotting patterns, forecasting).
+- **Visualization** (charts, graphs, dashboards).
+
+**Goal**: Turn data into **actionable insights** to improve efficiency, profitability, and competitiveness.
+
+**Example**: A retail company uses BI to track sales trends, manage inventory, and personalize marketing campaigns.
+
+## Data Warehouse vs. Data Lake
+
+> both used as centralized data storage
+
+<p>
+    <img src="https://github.com/user-attachments/assets/189ea474-2717-49a1-b111-031cbd5657e6" height=275>
+</p>
+
+| **Aspect**     | **Data Warehouse**                             | **Data Lake**                                      |
+| -------------- | ---------------------------------------------- | -------------------------------------------------- |
+| **Structure**  | _Structured_ (tables, schemas).                | _Raw_ (structured, semi-structured, unstructured). |
+| **Data Type**  | Cleaned, processed, ready for analysis.        | Raw, unprocessed (logs, JSON, videos, etc.).       |
+| **Processing** | _Schema-on-write_ (structured before storage). | _Schema-on-read_ (structure applied when used).    |
+| **Storage**    | Optimized for _query performance_.             | Optimized for _scalability and cost_.              |
+| **Use Case**   | Business intelligence, reporting, dashboards.  | Machine learning, exploratory analysis, big data.  |
+| **Tools**      | Redshift, Snowflake, BigQuery.                 | Hadoop, AWS S3, Databricks.                        |
+
+- **Warehouse**: _Structured data_ for _fast queries_ (e.g., sales reports).
+- **Lake**: _Raw data_ for _flexibility_ (e.g., AI experiments).
+
+#### When to use which?
+
+- **Warehouse**: Structured data → actionable insights.
+- **Lake**: Raw data → future innovation (but risks becoming a "data swamp" without governance).
+
+> Modern systems often combine both (**data lakehouse**, eg: Databricks).
