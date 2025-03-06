@@ -43,3 +43,7 @@ Data mainly used in company for 2 purposes:
 > - user friendly
 > - fast query performance
 > - enabling data analysis
+
+<p>
+   <img src="https://github.com/user-attachments/assets/c1102aca-4e3c-4ce7-892d-3e265b41c219" height=275>
+</p>
