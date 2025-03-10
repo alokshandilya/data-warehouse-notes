@@ -115,3 +115,28 @@
 - Real-time analytics & big data processing.
 - Low-latency applications (e.g., gaming, ad tech, financial trading).
 - Session management & caching for web applications.
+
+## OLAP Cubes
+
+- another way to improve performance of data marts
+- traditional DWH based on relational DBMS (ROLAP)
+- Data is organized non-relational in Cube (MOLAP)
+  - Cube: Multidimensional dataset
+- Arrays of data (measures) are stored in cells instead of tables
+- Main reason to use: Fast query performance
+- works well with many BI solutions
+
+<p>
+    <img src="https://github.com/user-attachments/assets/7b8104d8-3667-450c-98de-1d8ee063820f" height=275>
+</p>
+
+<table>
+    <tr>
+        <td>
+            <img src="https://github.com/user-attachments/assets/58f089fc-d0fb-408a-aec3-25055183e8d3">
+        </td>
+        <td>
+            <img src="https://github.com/user-attachments/assets/dac00e69-0e4f-4066-86db-c725480bf043">
+        </td>
+    </tr>
+</table>
