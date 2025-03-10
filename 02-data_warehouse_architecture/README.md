@@ -58,3 +58,60 @@
    - Useful for compliance and auditing.
    - Requires more storage and maintenance.
    - _Example_: A table that holds all raw incoming data before ETL transformations.
+
+## Data Marts
+
+<p>
+    <img src="https://github.com/user-attachments/assets/0fca9965-2d05-4bf8-a14d-b05c52fb9ac4" height=275>
+</p>
+
+> A **Data Mart** is a **subset** of a data warehouse that is focused on a specific business function, department, or subject area. It provides **filtered and structured** data tailored for a particular group of users, improving query performance and ease of access.
+
+- subset of data warhouse
+- dimensional model (fact table in the center, surrounded by dimension tables)
+- can be further aggregated
+- increases usability and acceptance
+- can increase performance (_in-memory database like Power BI, in some cases dimensional cubes_)
+- use cases:
+  - tools, departments, regions, products, customers, etc.
+
+## Relational Database vs. In-Memory Database
+
+### 1. Relational Database (RDBMS)
+
+> A **Relational Database Management System (RDBMS)** stores data in tables with predefined schemas, enforcing relationships using primary and foreign keys. Data is typically stored **on disk** and retrieved using SQL queries.
+
+#### Characteristics:
+
+- Data is stored **persistently** on disk.
+- Uses **indexes and caching** to optimize query performance.
+- ACID (**Atomicity, Consistency, Isolation, Durability**) compliant.
+- Supports **large-scale transactional processing**.
+- Can handle **OLTP (Online Transaction Processing) and OLAP (Online Analytical Processing)** workloads.
+- examples:
+  - PostgreSQL, MySQL, SQL Server, Oracle Database etc
+
+#### Use Cases:
+
+- Banking and finance (transactional consistency).
+- E-commerce applications.
+- Enterprise resource planning (ERP) systems.
+
+### 2. In-Memory Database (IMDB)
+
+> An **In-Memory Database (IMDB)** stores **all** data in **RAM (memory)** instead of disk, leading to significantly faster read/write speeds. Some IMDBs persist data to disk asynchronously to ensure durability.
+
+#### Characteristics:
+
+- Data is stored **entirely in RAM**, making it much **faster** than traditional RDBMS.
+- Can still be **ACID-compliant**, but with trade-offs for performance.
+- Some IMDBs offer **hybrid storage** (memory + disk persistence).
+- Best for **high-speed transactions** and **real-time analytics**.
+- examples:
+  - Redis, Memcached, SAP HANA, Apache Ignite, Oracle in-memory, Amazon MemoryDB
+
+#### Use Cases:
+
+- Real-time analytics & big data processing.
+- Low-latency applications (e.g., gaming, ad tech, financial trading).
+- Session management & caching for web applications.
