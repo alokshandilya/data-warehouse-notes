@@ -103,16 +103,3 @@ Data mainly used in company for 2 purposes:
 
 > - They are not mutually exclusive, _can be used together_
 > - Modern systems often combine both (**data lakehouse**, eg: Databricks).
-
-## Layers of Data Warehouse
-
-<table>
-    <tr>
-        <td>
-            <img src="https://github.com/user-attachments/assets/f1c96757-f938-4a96-8e62-132146527ab0">
-        </td>
-        <td>
-            <img src="https://github.com/user-attachments/assets/10fb54fb-637b-4cb6-b8ae-729fae98a435">
-        </td>
-    </tr>
-</table>
