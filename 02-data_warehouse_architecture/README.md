@@ -70,7 +70,7 @@
 ## Data Marts
 
 <p>
-    <img src="https://github.com/user-attachments/assets/0fca9965-2d05-4bf8-a14d-b05c52fb9ac4" height=275>
+    <img src="https://github.com/user-attachments/assets/0fca9965-2d05-4bf8-a14d-b05c52fb9ac4" width="75%">
 </p>
 
 > A **Data Mart** is a **subset** of a data warehouse that is focused on a specific business function, department, or subject area. It provides **filtered and structured** data tailored for a particular group of users, improving query performance and ease of access.
@@ -135,7 +135,7 @@
 - works well with many BI solutions
 
 <p>
-    <img src="https://github.com/user-attachments/assets/7b8104d8-3667-450c-98de-1d8ee063820f" height=275>
+    <img src="https://github.com/user-attachments/assets/7b8104d8-3667-450c-98de-1d8ee063820f" width="75%">
 </p>
 
 <table>

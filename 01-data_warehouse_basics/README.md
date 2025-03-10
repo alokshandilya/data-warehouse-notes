@@ -45,7 +45,7 @@ Data mainly used in company for 2 purposes:
 > - _enabling data analysis_
 
 <p>
-   <img src="https://github.com/user-attachments/assets/97262f7e-4e71-4f49-bdc5-80a06a7f925d" width="50%">
+   <img src="https://github.com/user-attachments/assets/97262f7e-4e71-4f49-bdc5-80a06a7f925d" width="75%">
 </p>
 
 #### Goal of Data Warehouse:
@@ -61,7 +61,7 @@ Data mainly used in company for 2 purposes:
 > **we create data warehouse for Business Intelligence (BI)**
 
 <p>
-    <img src="https://github.com/user-attachments/assets/0bb217a6-4e95-467b-828b-ab1121f71187" height=275>
+    <img src="https://github.com/user-attachments/assets/0bb217a6-4e95-467b-828b-ab1121f71187" width="75%">
 </p>
 
 **Business Intelligence (BI)** refers to the process of collecting, analyzing, and transforming raw data into actionable insights to support business decisions. It involves tools (e.g., dashboards, reports) and practices (e.g., data mining, visualization) to identify trends, optimize operations, and improve strategic outcomes.
@@ -81,7 +81,7 @@ Data mainly used in company for 2 purposes:
 > both used as centralized data storage
 
 <p>
-    <img src="https://github.com/user-attachments/assets/189ea474-2717-49a1-b111-031cbd5657e6" height=275>
+    <img src="https://github.com/user-attachments/assets/189ea474-2717-49a1-b111-031cbd5657e6" width="75%">
 </p>
 
 | **Aspect**     | **Data Warehouse**                             | **Data Lake**                                      |
