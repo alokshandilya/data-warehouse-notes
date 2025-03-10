@@ -72,7 +72,7 @@
 - can be further aggregated
 - increases usability and acceptance
 - can increase performance (_in-memory database like Power BI, in some cases dimensional cubes_)
-- use cases:
+- _use cases_:
   - tools, departments, regions, products, customers, etc.
 
 ## Relational Database vs. In-Memory Database
@@ -88,7 +88,7 @@
 - ACID (**Atomicity, Consistency, Isolation, Durability**) compliant.
 - Supports **large-scale transactional processing**.
 - Can handle **OLTP (Online Transaction Processing) and OLAP (Online Analytical Processing)** workloads.
-- examples:
+- _examples_:
   - PostgreSQL, MySQL, SQL Server, Oracle Database etc
 
 #### Use Cases:
@@ -107,7 +107,7 @@
 - Can still be **ACID-compliant**, but with trade-offs for performance.
 - Some IMDBs offer **hybrid storage** (memory + disk persistence).
 - Best for **high-speed transactions** and **real-time analytics**.
-- examples:
+- _examples_:
   - Redis, Memcached, SAP HANA, Apache Ignite, Oracle in-memory, Amazon MemoryDB
 
 #### Use Cases:
@@ -140,3 +140,29 @@
         </td>
     </tr>
 </table>
+
+## ODS (Operational Data Storage)
+
+- similar to data warehouse
+- **not used for analytical or strategical purposes but instead for operational decision making**
+- no need for long history
+- needs to be very current or real-time
+
+#### Can we use ODS and DW together?
+
+**Yes**, in parallel or sequential
+
+> _sequential integration is more common_
+
+<table>
+    <tr>
+        <td>
+            <img src="https://github.com/user-attachments/assets/a151f1af-08df-4f36-9926-e198210a5a3d">
+        </td>
+        <td>
+            <img src="https://github.com/user-attachments/assets/72a1b678-b747-4ba7-80af-fead7d49d10b">
+        </td>
+    </tr>
+</table>
+
+> _ODS is getting less relevant with better performance of DBs and faster ETL, big data technologies (very fast, real-time)_
