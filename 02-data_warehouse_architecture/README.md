@@ -1,4 +1,4 @@
-## Data Warehouse Architecture
+# Data Warehouse Architecture
 
 ## Layers of Data Warehouse
 
