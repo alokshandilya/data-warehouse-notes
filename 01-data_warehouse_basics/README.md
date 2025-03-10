@@ -45,7 +45,7 @@ Data mainly used in company for 2 purposes:
 > - _enabling data analysis_
 
 <p>
-   <img src="https://github.com/user-attachments/assets/97262f7e-4e71-4f49-bdc5-80a06a7f925d" height=275>
+   <img src="https://github.com/user-attachments/assets/97262f7e-4e71-4f49-bdc5-80a06a7f925d" width="50%">
 </p>
 
 #### Goal of Data Warehouse:
