@@ -132,3 +132,76 @@ it's often requested by business users and we are tempted to create a YTD, MTD, 
 > the problem is that these calculations are not in the defined grain of the fact table.
 >
 > :star2: better store the underlying values (eg. revenue) in defined grain (eg. daily grain) and calculate all the to-Date variations in BI tool, also OLAP cubes can handle these calculations.
+
+## Types of Fact Tables
+
+- Transactional Fact Table
+- Periodic Snapshot Fact Table
+- Accumulating Snapshot Fact Table
+- Factless Fact Table
+
+### Transactional Fact Table
+
+<p>
+    <img src="https://github.com/user-attachments/assets/7a970771-81ea-4434-8764-1f4b1e25bf0c" width="75%">
+</p>
+
+- This is the **most common** and **flexible** because we can analyze it in many different ways with many dimensions.
+- typically additive
+- tend to have a lot of dimensions associated (FKs) with it.
+- can be enormous in size and may have rapid growth.
+
+### Periodic Snapshot Fact Table
+
+<p>
+    <img src="https://github.com/user-attachments/assets/46b8c6aa-adca-4651-a809-36c598e7ec48" width="75%">
+</p>
+
+- tends to be not as enormous in size.
+- typically additive
+- tend to have a lot of facts and fewer dimensions associated.
+- No events = null or 0. (null won't be included in aggregation eg. AVG)
+
+### Accumulating Snapshot Fact Table
+
+<p>
+    <img src="https://github.com/user-attachments/assets/32e4ea9f-4b64-4e30-b1f4-7a891c5aa6fd" width="75%">
+</p>
+
+- least common
+- workflow or process analysis
+- multiple date/time FKs (for each process step)
+- date/time keys associated with **role-playing dimensions**
+
+> **Key Differences**  
+> key difference b/w these types of Fact tables
+>
+> <img src="https://github.com/user-attachments/assets/bf1bd130-17dc-4fc1-b272-eaf4b1d93682">
+
+### Factless Fact Table
+
+In a Fact table there can be multiple facts, but in a Factless Fact table there are no facts, only FKs.
+
+- **fact**: numeric measurement used to track the perforamance of a certain business process.
+- **fact table**: table that contains facts, FKs etc.
+- **factless fact table**: table that contains only FKs, no facts.
+
+Sometimes only dimensional aspects of an event are recorded, and no measures are associated with the event. In such cases, a factless fact table is used.
+
+<table>
+    <tr>
+        <td>
+            <img src="https://github.com/user-attachments/assets/d5b5340e-b129-47ab-bc78-671bec07eea4">
+        </td>
+        <td>
+            <img src="https://github.com/user-attachments/assets/8e07320d-3e09-4e16-a1d9-7e6eceb097d8">
+        <p><b>Occurance of events like:</b> <i>Employee Promotion</i>
+        </p>
+        </td>
+    </tr>
+</table>
+
+We can answer questions like:
+
+> - How many employees have been registered last month?
+> - How many employees have been registered in a certain region?
