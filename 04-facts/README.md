@@ -1,6 +1,11 @@
 # Facts
 
-## 1. Additive Facts (Summing Always Works)
+## Additivity
+
+Think of it as: "Does it make logical sense to add these numbers together?"
+If the answer is yes, the facts are additive. If the answer is sometimes then they are semi additive, and if the answer is no, they are non-additive.
+
+### 1. Additive Facts (Summing Always Works)
 
 <p>
     <img src="https://github.com/user-attachments/assets/2486a0d9-b19f-4773-a2b6-53781f81d191" width="75%">
@@ -24,7 +29,7 @@ _**Another Example**: Sale Revenue_
   - Sales Revenue by Product: $100 + $120 = $220 (total shirt sales) and $150 (total pant sales)
   - Sales Revenue by Region: $220 (East Sales) $150 (West Sales)
 
-## 2. Semi-Additive Facts (Summing Works Sometimes)
+### 2. Semi-Additive Facts (Summing Works Sometimes)
 
 <table>
     <tr>
@@ -56,7 +61,7 @@ _**Another Example**: Bank Account Balance_
 - **You cannot add up**:
   - Balance by Date: $100 + $150 + $120 = $370 (meaningless)
 
-## 3. Non-Additive Facts (Summing Never Works)
+### 3. Non-Additive Facts (Summing Never Works)
 
 <p>
     <img src="https://github.com/user-attachments/assets/debb11ff-a272-4752-ad85-4ad568f71fa0" width="75%">
