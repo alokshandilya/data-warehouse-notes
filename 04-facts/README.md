@@ -90,3 +90,45 @@ _**Another Example**: Average Customer Rating_
 <p>
     <img src="https://github.com/user-attachments/assets/154fcaf0-8b8c-4eac-bd45-bedfaf765af2" width="75%">
 </p>
+
+## Nulls in Facts
+
+- If you have a null in a fact table, it will not be included in the aggregation.
+  - but, should be handled if needed (eg, by replacing with 0).
+
+<table>
+    <tr>
+        <td>
+            <img src="https://github.com/user-attachments/assets/0abfcf37-8868-43ed-86e7-90b9331bd157">
+        </td>
+        <td>
+            <img src="https://github.com/user-attachments/assets/b7daf52d-a56b-4cda-94ff-de35155f948e">
+        </td>
+    </tr>
+</table>
+
+- Nulls should not be in FK columns, as it can lead to missing data, conflicts etc if we want to connect it to some dimension table.
+  - you can create some dummy value in the dimension table to handle this (eg, "-1", "Unknown", "Not Available" etc).
+
+<table>
+    <tr>
+        <td>
+            <img src="https://github.com/user-attachments/assets/bb318b6e-8c3d-4a6b-bbbf-37cde41e3812">
+        </td>
+        <td>
+            <img src="https://github.com/user-attachments/assets/38421b8d-cfdb-4361-8b59-631e77f37258">
+        </td>
+    </tr>
+</table>
+
+## Year-to-Date Facts
+
+it's often requested by business users and we are tempted to create a YTD, MTD, QTD etc. fact column in the fact table. But, it's not a good idea to store YTD facts in the fact table.
+
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/a868933c-f20e-4186-8179-7fac5d3c72d5" width="75%">
+</p>
+
+> the problem is that these calculations are not in the defined grain of the fact table.
+>
+> :star2: better store the underlying values (eg. revenue) in defined grain (eg. daily grain) and calculate all the to-Date variations in BI tool, also OLAP cubes can handle these calculations.
