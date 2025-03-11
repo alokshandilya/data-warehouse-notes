@@ -42,6 +42,34 @@
 - A well-defined grain enables accurate analysis and reporting.
   - It helps prevent "mixed granularity" issues, where a fact table contains records representing different levels of detail, leading to inaccurate results.
 
+#### Example of Grain in a Sales Fact Table
+
+| Date       | Store   | Product | Sales Amount ($) | Quantity Sold |
+| ---------- | ------- | ------- | ---------------- | ------------- |
+| 2024-03-10 | Store A | Laptop  | 5000             | 2             |
+| 2024-03-10 | Store A | Phone   | 2000             | 5             |
+
+- **Grain Statement**: “One row per **product sold per store per day**.”
+
+#### Types of Grain
+
+1. **Fine-Grained (Detailed)**
+   - Each row represents **the most detailed level possible**.
+   - **Example:** A fact table with records per **individual transaction**.
+   - **Pros:** More flexibility for analysis.
+   - **Cons:** Higher storage and slower queries.
+2. **Coarse-Grained (Aggregated)**
+   - Stores **pre-aggregated** data at a higher level.
+   - **Example:** Sales data **summarized per month per store**.
+   - **Pros:** Faster queries, less storage.
+   - **Cons:** Less detailed insights.
+
+#### Why is Grain Important?
+
+- **Defines query capability** (What level of analysis is possible?).
+- **Affects storage & performance** (Finer grain = more storage, slower queries).
+- **Determines aggregations & reporting accuracy**.
+
 <table>
     <tr>
         <td>
