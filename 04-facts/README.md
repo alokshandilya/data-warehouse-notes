@@ -205,3 +205,15 @@ We can answer questions like:
 
 > - How many employees have been registered last month?
 > - How many employees have been registered in a certain region?
+
+## Steps to create a Fact Table
+
+There are 4 key decisions to make **considering the business needs** to create our tables and columns.
+
+<img src="https://github.com/user-attachments/assets/23a5d8ff-26e7-420b-8ad3-9f4faa85522e" width="75%">
+
+- **Step 1**: Identify the business process to analyze.
+- **Step 2**: Decide the grain of the fact table.
+  > **Grain**: the level of detail in the fact table (_what is one row in the fact table representing?_). It's _recommended to have the finest grain possible_ (not pre-aggregated, leave us open for broader analysis).
+- **Step 3**: Choose the relevant dimensions.
+- **Step 4**: Identify the facts.
