@@ -57,3 +57,109 @@
 <p>
     <img src="https://github.com/user-attachments/assets/e578c555-7675-4898-9c10-2373d1d01445" width="75%">
 </p>
+
+## Hierarchies in Dimensions
+
+Often times, dimensions have hierarchies (source data is in a normalized form, resulting in snowflake schema, which should be avoided due to bad performance and usability), which can be flattened in the data warehouse.
+
+> normalized data saves disk space and good for write operations, but bad for read operations (which is needed in data warehousing, analytical data processing).
+
+#### Flatten the hierarchy in the data warehouse. (Denormalize the data)
+
+  <img src="https://github.com/user-attachments/assets/b7fb0ac2-fc1e-4402-b1d3-f33a6b1e9b93" width="75%">
+
+  <img src="https://github.com/user-attachments/assets/10ecb8b1-c91e-4c85-86ec-31f9aa5d327f" width="75%">
+
+> we can also combine attributes of different levels of hierarchy into a single column, if it's needed (user wants the combined data).
+>
+> <img src="https://github.com/user-attachments/assets/fcfc559b-232d-4d38-99d9-a8eac518ca9d" width="75%">
+
+## Conformed Dimensions
+
+A **Conformed Dimension** is a dimension that is **shared across multiple fact tables** in a data warehouse. It has the **same meaning, structure, and values** across different business processes.
+
+- Dimension that is **shared by multiple fact tables/stars**.
+  - conformed dimension is/are shared attributes across multiple fact tables.
+- **used to compare facts across different fact tables in a report or analysis.**
+
+<img src="https://github.com/user-attachments/assets/26548832-ff56-4464-9f91-96266137593b" width="75%">
+
+<table>
+    <tr>
+        <td>
+            <img src="https://github.com/user-attachments/assets/8a4d8f13-60a7-4fed-b011-57b6cf78f8d5">
+        </td>
+        <td>
+            <img src="https://github.com/user-attachments/assets/fbb0b627-f886-47a2-b74f-e0e9cc35c36d">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img src="https://github.com/user-attachments/assets/e71c2010-46c8-4d49-b489-f014c9462713">
+        </td>
+        <td>
+            <img src="https://github.com/user-attachments/assets/bf63f44f-9a0a-4d85-a130-10014cb0ab75">
+        </td>
+    </tr>
+</table>
+
+**Why It’s Important?**
+
+- Ensures **consistency** in reporting across different data marts.
+- Enables **seamless integration** of data from multiple sources.
+- Supports **Drill Across** analysis.
+
+**Example**
+
+Consider a retail business with two fact tables:
+
+1. **Sales Fact Table** (tracks transactions)
+2. **Inventory Fact Table** (tracks stock levels)
+
+Both these fact tables share a **"Product" dimension** with the same attributes (Product ID, Name, Category, etc.). Since the "Product" dimension is structured the same way across both tables, it is a **Conformed Dimension**.
+
+#### Drill Across
+
+**Drill Across** is a technique used to **query multiple fact tables** simultaneously using a common conformed dimension. It allows users to analyze **different business metrics together** by joining fact tables based on shared dimensions.
+
+**Why It’s Important?**
+
+- Helps in analyzing **cross-functional** business performance.
+- Allows users to correlate different metrics that belong to separate fact tables.
+
+**Example**  
+Suppose we have:
+
+- **Sales Fact Table** (measures revenue, units sold)
+- **Inventory Fact Table** (measures stock levels, reorder quantities)
+- **Common Conformed Dimension: "Product"**
+
+A Drill Across query could analyze:
+
+- **Revenue vs. Stock Levels** → Identify products with high sales but low inventory.
+- **Sales vs. Reorder Quantity** → Understand if reorder policies align with sales trends.
+
+**How It Works in SQL?**
+
+```sql
+SELECT
+    p.product_name,
+    SUM(s.sales_amount) AS total_sales,
+    SUM(i.stock_quantity) AS total_stock
+FROM sales_fact s
+JOIN product_dim p ON s.product_id = p.product_id
+JOIN inventory_fact i ON i.product_id = p.product_id
+GROUP BY p.product_name;
+```
+
+This retrieves **both sales and inventory data** using the shared **Product** dimension.
+
+| Feature       | Conformed Dimension                                   | Drill Across                                                     |
+| ------------- | ----------------------------------------------------- | ---------------------------------------------------------------- |
+| Definition    | A dimension used across multiple fact tables          | Querying multiple fact tables using shared dimensions            |
+| Purpose       | Ensures data consistency                              | Combines metrics from different business processes               |
+| Example       | "Customer" used in both Sales and Support fact tables | Comparing Revenue (Sales Fact) and Stock Levels (Inventory Fact) |
+| SQL Technique | Joins with dimension tables                           | Joins across multiple fact tables                                |
+
+> - **Conformed Dimensions** ensure **data consistency** across fact tables.
+> - **Drill Across** leverages conformed dimensions to **combine insights from multiple fact tables**.
