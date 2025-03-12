@@ -163,3 +163,52 @@ This retrieves **both sales and inventory data** using the shared **Product** di
 
 > - **Conformed Dimensions** ensure **data consistency** across fact tables.
 > - **Drill Across** leverages conformed dimensions to **combine insights from multiple fact tables**.
+
+## Degenerate Dimension
+
+A **Degenerate Dimension (DD)** is a dimension that **exists in the fact table but does not have its own separate dimension table**. Instead, it is stored as an attribute in the fact table itself.
+
+<table>
+    <tr>
+        <td>
+            <img src="https://github.com/user-attachments/assets/4c6a54b9-6d0e-46a5-a532-bb601d6fdeb5">
+        </td>
+        <td>
+            <img src="https://github.com/user-attachments/assets/d1a1056f-1791-4482-8165-d0dd03cb16e3">
+        </td>
+    </tr>
+</table>
+
+## Junk Dimension
+
+A **Junk Dimension** is a dimension table that combines **low-cardinality, miscellaneous attributes** that don’t fit into other dimensions. These attributes are usually flags, indicators, or descriptive fields that would otherwise clutter the fact table.
+
+> we call it **Junk Dimension** usually only internally. Talking to business users we can refer to as _**"transactional indicator dimension"**_.
+
+<table>
+    <tr>
+        <td>
+            <img src="https://github.com/user-attachments/assets/d26c4ebf-e17d-4317-8b3e-d8b2e4be398f">
+        </td>
+        <td>
+            <img src="https://github.com/user-attachments/assets/dd678c24-8c22-4799-bd30-73a3de00ffcb">
+        </td>
+    </tr>
+</table>
+
+> we can also do grouping if needed.
+>
+> <img src="https://github.com/user-attachments/assets/5b6172c7-0787-4594-b31b-57db0cc1a197" width="50%">
+
+> note that, **Junk Dimension** can have huge number of combinations, so it's better to keep it small.
+
+<table>
+    <tr>
+        <td>
+            <img src="https://github.com/user-attachments/assets/3605ad5e-afd7-45c9-882f-990e14fffb1a">
+        </td>
+        <td>
+            <img src="https://github.com/user-attachments/assets/760e4434-e03a-427b-b051-a30e6143433a">
+        </td>
+    </tr>
+</table>
