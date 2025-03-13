@@ -101,3 +101,51 @@ Yes, we can mix, some attributes can be in type 1 and some type 2.
 - add new row for new `product_category` (type 2)
 
 <img src="https://github.com/user-attachments/assets/1462d322-d6f4-4ebe-81b5-a9c68936e378" width="75%">
+
+### Type 3: Additonal Attributes (Add a Column)
+
+It's the least frequently used type.
+
+- **Type 1**: static, no history
+- **Type 2**: default strategy to maintain reflected history
+- **Type 3**: in between, switching back and forth between versions
+  - instead of adding a row, we add a column
+
+<table>
+    <tr>
+        <td>
+            <img src="https://github.com/user-attachments/assets/ae23f058-b655-4fe2-aeaa-12efae7a9b67">
+        </td>
+        <td>
+            <img src="https://github.com/user-attachments/assets/">
+        </td>
+    </tr>
+</table>
+
+> - typically use for significant changes at a time (eg. restructurings in organization) so that we can compare the old and new values.
+> - enables switching between historic/current view
+
+> If you are a manager and you want to analyze sales by region, you can use type 3 and after restructuring, you can compare how would the sales be if the restructuring was not done (from West to South region in below example)
+
+| Reg_PK  | Region      | Prev_Region |
+| :-----: | ----------- | ----------- |
+|    1    | North       | North       |
+| _**2**_ | _**West**_  | _**West**_  |
+| _**3**_ | _**South**_ | _**West**_  |
+
+- if there are new attributes, we can simply add a new row
+
+| Reg_PK  | Region     | Prev_Region           |
+| :-----: | ---------- | --------------------- |
+|    1    | North      | North                 |
+|    2    | West       | West                  |
+|    3    | South      | West                  |
+| _**4**_ | _**East**_ | _**Not Appliacable**_ |
+
+- also, we can add multiple historical columns (above uses only one `Prev_Region`), but we should not add too many historical columns.
+
+#### Limitations
+
+- type 3, is mainly used when there is a big predictable change happening, in one moment values are changing.
+- _not suitable for frequent or unpredictable changes_ **(use type 2)**
+- _minor changes and no body cares much about the history_ **(use type 1)**
