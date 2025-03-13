@@ -6,8 +6,8 @@
 |  2  | Data Warehouse Architecture          |   ✅   |
 |  3  | Dimensional Modeling                 |   ✅   |
 |  4  | Facts                                |   ✅   |
-|  5  | Dimensions                           |        |
-|  6  | Slowly Changing Dimensions           |        |
+|  5  | Dimensions                           |   ✅   |
+|  6  | Slowly Changing Dimensions           |   ✅   |
 |  7  | ETL Process                          |        |
 |  8  | ETL Tools                            |        |
 |  9  | Case Study creating a Data Warehouse |        |
