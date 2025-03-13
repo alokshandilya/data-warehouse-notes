@@ -212,3 +212,74 @@ A **Junk Dimension** is a dimension table that combines **low-cardinality, misce
         </td>
     </tr>
 </table>
+
+## Role-playing Dimension
+
+A **Role-Playing Dimension** is a single dimension that is used multiple times in a fact table, playing different roles depending on the business context. This is common when the same type of information (e.g., Date, Employee, Location) is needed for different purposes.
+
+- **Avoids Data Duplication:** Instead of creating multiple similar dimension tables, we reuse a single table with different aliases.
+
+#### Example: Order Management System
+
+Consider a **Sales Fact Table**, where we need to track different dates:
+
+1. **Order Date** – When the order was placed.
+2. **Shipping Date** – When the order was shipped.
+3. **Delivery Date** – When the customer received the order.
+
+Instead of creating three separate date dimension tables, we use **one Date Dimension** multiple times in the fact table.
+
+**Date Dimension Table (`dim_date`)**  
+| Date_ID | Date | Day_Name | Month | Year |  
+|---------|----------|---------|-------|------|  
+| 1 | 2025-03-10 | Monday | March | 2025 |  
+| 2 | 2025-03-11 | Tuesday | March | 2025 |  
+| 3 | 2025-03-12 | Wednesday | March | 2025 |
+
+**Sales Fact Table (`fact_sales`)**  
+| Order_ID | Order_Date_ID | Ship_Date_ID | Delivery_Date_ID | Sales_Amount |  
+|----------|--------------|--------------|------------------|-------------|  
+| 1001 | 1 | 2 | 3 | 200 |  
+| 1002 | 2 | 3 | 3 | 350 |
+
+Here, the **Date Dimension (dim_date)** is playing three different roles:
+
+- **Order Date** (when the order was placed)
+- **Shipping Date** (when the order was shipped)
+- **Delivery Date** (when the order was received)
+
+In SQL queries, we can **alias the Date Dimension** to differentiate its roles:
+
+```sql
+SELECT
+    o.order_id,
+    od.date AS order_date,
+    sd.date AS ship_date,
+    dd.date AS delivery_date,
+    o.sales_amount
+FROM fact_sales o
+JOIN dim_date od ON o.order_date_id = od.date_id
+JOIN dim_date sd ON o.ship_date_id = sd.date_id
+JOIN dim_date dd ON o.delivery_date_id = dd.date_id;
+```
+
+#### Other Common Role-Playing Dimensions
+
+- **Customer Dimension** → "Billing Customer" vs. "Shipping Customer"
+- **Employee Dimension** → "Salesperson" vs. "Manager"
+- **Location Dimension** → "Store Location" vs. "Warehouse Location"
+
+<table>
+    <tr>
+        <td>
+            <img src="https://github.com/user-attachments/assets/72ae7224-a02d-4924-84ed-42932c782b92">
+        </td>
+        <td>
+            <img src="https://github.com/user-attachments/assets/deb9ff17-a546-4e41-aa6c-8567897453f0">
+        </td>
+    </tr>
+</table>
+
+- for analysis in SQL, we can use `JOIN` with alias.
+  - can create additional views for each role.
+- no duplication data but still it appears like a different dimension.
